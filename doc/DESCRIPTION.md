@@ -1,1 +1,1 @@
-lesma is a simple paste app, friendly with browser and command line, with files as storage backend.
+Lesma is a simple paste app, friendly with browser and command line, with files as storage backend.
