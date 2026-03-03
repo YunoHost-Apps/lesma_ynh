@@ -1,1 +1,1 @@
-Ceci est une fausse description des fonctionalités de l'app
+Lesma est une application simple de type « paste », compatible avec les navigateurs et les lignes de commande, qui utilise des fichiers comme backend de stockage.

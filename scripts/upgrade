@@ -14,24 +14,6 @@ ynh_script_progression "Stopping $app's systemd service..."
 ynh_systemctl --service="$app" --action="stop"
 
 #=================================================
-# ENSURE DOWNWARD COMPATIBILITY
-#=================================================
-ynh_script_progression "Ensuring downward compatibility..."
-
-ynh_app_setting_set_default --key=php_upload_max_filesize --value=50M
-ynh_app_setting_set_default --key=php_post_max_size --value=50M
-
-### N.B. : the following setting migration snippets are provided as *EXAMPLES*
-### of what you may want to do in some cases (e.g. a setting was not defined on
-### some legacy installs and you therefore want to initiaze stuff during upgrade)
-
-# If db_name doesn't exist, create it
-# ynh_app_setting_set_default --key=db_name --value="$(ynh_sanitize_dbid --db_name=$app)"
-
-# If install_dir doesn't exist, create it
-# ynh_app_setting_set_default --key=install_dir --value="/var/www/$app"
-
-#=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
 #=================================================
 ynh_script_progression "Upgrading source files..."
@@ -49,7 +31,7 @@ ynh_config_add_nginx
 
 ynh_config_add_systemd
 
-yunohost service add "$app" --description="A short description of the app" --log="/var/log/$app/$app.log"
+yunohost service add "$app" --description="Simple paste app" --log="/var/log/$app/$app.log"
 
 #=================================================
 # START SYSTEMD SERVICE
